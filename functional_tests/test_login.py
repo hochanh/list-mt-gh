@@ -1,7 +1,7 @@
 from .base import FunctionalTest
 import time
 
-TEST_EMAIL = 'what@mockmyid.com'
+TEST_EMAIL = 'whattt@mockmyid.com'
 class LoginTest(FunctionalTest):
 
     def test_login_with_persona(self):
