@@ -12,9 +12,17 @@ addons:
 env:
   global:
     - DJANGO_SETTINGS_MODULE="superlists.settings"
+    - DATABASE_URL="postgres://postgres@localhost/django_testdb"
+    - DOMAIN="localhost:8081"
+
+before_install:
+  - "export DISPLAY=:8081"
+  - "sh -e /etc/init.d/xvfb start"
 
 before_script:
   - psql -c 'create database django_testdb;' -U postgres
   - python manage.py syncdb --noinput
 
-script: python manage.py test functional_tests
+script: 
+  - python manage.py test lists accounts
+  - python manage.py test functional_tests
