@@ -5,6 +5,7 @@
 # - [x] Add a URL for creating a new list via POST
 # - [x] Ad URLs for adding a new item to an exsiting list via POST
 
+from pyvirtualdisplay import Display
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
@@ -27,10 +28,13 @@ class FunctionalTest(StaticLiveServerTestCase):
             super().tearDownClass()
 
     def setUp(self):
+        self.display = Display(visible=0, size=(1024, 768))
+        self.display.start()
         self.browser = webdriver.Firefox()
 
     def tearDown(self):
         self.browser.quit()
+        self.display.stop()
 
     def check_for_row_in_list_table(self, row_text):
         table = self.browser.find_element_by_id('id_list_table')
