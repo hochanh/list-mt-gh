@@ -1,0 +1,14 @@
+language: python
+python:
+  - "3.4"
+
+install:
+  - pip install -r requirements_tests.txt
+
+addons:
+  postgresql: "9.3"
+
+before_script:
+  - psql -c 'create database django_testdb;' -U postgres
+
+script: python manage.py test functional_tests
