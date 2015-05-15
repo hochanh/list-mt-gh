@@ -21,6 +21,7 @@
             <div id="accounts">
                 <ul class="nav navbar-nav navbar-right">
                 {% if user.email %}
+                    <li><a href="#">{{ user.email }}</a></li>
                     <li><a href="{% url 'my_lists' user.email %}">My lists</a></li>
                     <li><a id="id_logout" href="{% url 'persona_logout' %}">Log out</a></li>
                 {% else %}
