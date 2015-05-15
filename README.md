@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/hochanh/list-mt-gh.svg?branch=master)](https://travis-ci.org/hochanh/list-mt-gh)
+
 Deployment to Heroku
 ====================
 
@@ -188,5 +190,4 @@ from whitenoise.django import DjangoWhiteNoise
 application = get_wsgi_application()
 application = DjangoWhiteNoise(application)
 ```
-
 
